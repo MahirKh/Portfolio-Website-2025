@@ -1,55 +1,84 @@
-import React, { useState } from 'react';
-import { SectionTitle } from './SectionTitle';
-import { Button } from './Button';
-import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { SectionTitle } from "./SectionTitle";
+import { Button } from "./Button";
+import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{
-    type: 'success' | 'error';
+    type: "success" | "error";
     text: string;
   } | null>(null);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: "Mahir Khandaker",
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
       setSubmitMessage({
-        type: 'success',
-        text: 'Your message has been sent! I will get back to you soon.'
+        type: "success",
+        text: "Your message has been sent successfully! I will get back to you soon.",
       });
+
       // Reset form
       setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
       });
-      // Clear success message after 5 seconds
+    } catch (error) {
+      setSubmitMessage({
+        type: "error",
+        text: "Sorry, there was an error sending your message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+      // Clear message after 5 seconds
       setTimeout(() => {
         setSubmitMessage(null);
       }, 5000);
-    }, 1500);
+    }
   };
-  return <section id="contact" className="py-20 bg-white">
+
+  return (
+    <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6 md:px-12">
-        <SectionTitle title="Get In Touch" subtitle="Let's work together" centered />
+        <SectionTitle
+          title="Get In Touch"
+          subtitle="Let's work together"
+          centered
+        />
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-1 space-y-6">
             <div className="flex items-start">
@@ -60,7 +89,7 @@ export const ContactSection = () => {
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">
                   Email
                 </h4>
-                <p className="text-gray-600">contact@johndoe.com</p>
+                <p className="text-gray-600">mkhandaker1999@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start">
@@ -71,7 +100,7 @@ export const ContactSection = () => {
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">
                   Phone
                 </h4>
-                <p className="text-gray-600">+1 (555) 123-4567</p>
+                <p className="text-gray-600">+1 (905) 920-2957</p>
               </div>
             </div>
             <div className="flex items-start">
@@ -82,7 +111,7 @@ export const ContactSection = () => {
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">
                   Location
                 </h4>
-                <p className="text-gray-600">San Francisco, CA</p>
+                <p className="text-gray-600">Hamilton, ON, Canada</p>
               </div>
             </div>
           </div>
@@ -90,42 +119,103 @@ export const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-gray-700 font-medium mb-2"
+                  >
                     Name
                   </label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 font-medium mb-2"
+                  >
                     Email
                   </label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Subject
                 </label>
-                <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
               </div>
               <div>
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 font-medium mb-2"
+                >
                   Message
                 </label>
-                <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={5}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                ></textarea>
               </div>
-              {submitMessage && <div className={`p-4 rounded-md ${submitMessage.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+              {submitMessage && (
+                <div
+                  className={`p-4 rounded-md ${
+                    submitMessage.type === "success"
+                      ? "bg-green-50 text-green-800"
+                      : "bg-red-50 text-red-800"
+                  }`}
+                >
                   {submitMessage.text}
-                </div>}
-              <Button type="submit" className="w-full md:w-auto" disabled={isSubmitting}>
-                {isSubmitting ? 'Sending...' : <>
+                </div>
+              )}
+              <Button
+                type="submit"
+                className="w-full md:w-auto"
+                // disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
+                  <>
                     Send Message
                     <SendIcon size={18} className="ml-2" />
-                  </>}
+                  </>
+                )}
               </Button>
             </form>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
