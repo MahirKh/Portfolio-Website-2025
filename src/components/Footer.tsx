@@ -22,7 +22,9 @@ export const Footer = () => {
             <div className="text-2xl font-bold text-white mb-2">
               Mahir Khandaker
             </div>
-            <p className="text-gray-400 text-center">Full Stack Developer</p>
+            <p className="text-gray-400 text-center sm:text-left">
+              Full Stack Developer
+            </p>
           </div>
           <div className="flex space-x-4">
             {socialLinks.map((link, index) => (
@@ -40,7 +42,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 mb-4 md:mb-0">
+          <div className="text-gray-400 mb-4 md:mb-0 text-center sm:text-left">
             © {currentYear} Mahir Khandaker. All rights reserved.
           </div>
           <div className="flex space-x-6">
