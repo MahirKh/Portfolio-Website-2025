@@ -79,7 +79,7 @@ export const AboutSection = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4 text-gray-800">My Story</h3>
             <p className="text-gray-600 mb-4">
-              Hello! I'm Mahir, a passionate Full Stack Developer with over 5
+              Hello! I'm Mahir, a passionate Full Stack Developer with over 2+
               years of experience in creating digital experiences for a variety
               of clients. My journey in web development began during my college
               years when I built my first website for a local business.
@@ -87,7 +87,7 @@ export const AboutSection = () => {
             <p className="text-gray-600 mb-4">
               Since then, I've worked with startups and established companies
               alike, helping them achieve their digital goals through clean code
-              and thoughtful design. I believe in creating websites that not
+              and thoughtful design. I believe in creating applications that not
               only look great but also provide exceptional user experiences.
             </p>
             <p className="text-gray-600">

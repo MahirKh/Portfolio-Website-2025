@@ -8,28 +8,28 @@ export const ExperienceSection = () => {
       company: "Sun Life Financial",
       period: "2024 - Present",
       description:
-        "Lead the frontend development team in creating modern web applications using React and TypeScript. Implemented performance optimizations that improved page load times by 40%.",
+        "At Sun Life, I’ve contributed to enterprise-scale applications using React, Node.js, Docker, and PostgreSQL. Contributed to key initiatives like a vendor-agnostic authentication system projected to save over $2M and helped build a reusable chatbot widget deployed across multiple platforms. I also supported cross-team DevOps efforts and temporarily stepped into senior developer responsibilities",
     },
     {
       title: "Embedded Software Developer Co-op ",
       company: "Molex",
       period: "January 2022 - August 2022",
       description:
-        "Developed responsive web interfaces for various clients. Collaborated with designers to ensure pixel-perfect implementation of UI designs.",
+        "Refactored a legacy multi-threaded C codebase into two single-threaded processes, improving performance and reducing race conditions. Built comprehensive test suites and worked in a fast-paced Agile environment.",
     },
     {
       title: "Software Developer Co-op",
       company: "TD Bank",
       period: " September 2021 – December 2021",
       description:
-        "Built websites for small businesses using HTML, CSS, and JavaScript. Assisted senior developers with larger projects and learned modern development practices.",
+        "Built custom ETL pipelines using C#, SQL, and SSIS to automate RSA Archer function management. Developed 100+ internal tools, enhancing efficiency across multiple teams.",
     },
     {
       title: "Full-Stack Developer",
       company: "MAX Gala",
       period: "June 2021 – August 2021",
       description:
-        "Built websites for small businesses using HTML, CSS, and JavaScript. Assisted senior developers with larger projects and learned modern development practices.",
+        "Led the development of a Q&A feature using React, Python, and AWS, increasing user engagement by 30%. Implemented performance enhancements like pagination and lazy loading, resulting in a 20% faster site.",
     },
   ];
   const education = [
@@ -39,7 +39,10 @@ export const ExperienceSection = () => {
       institution: "McMaster University",
       period: "Graduated in 2023",
       description:
-        "Specialized in Web Technologies and User Interface Design. Graduated with honors.",
+        "Completed a multidisciplinary engineering program with a focus on software development and embedded systems. Relevant coursework included object-oriented programming in C, data structures and algorithms in Java, and a year-long capstone project.",
+      capstoneTitle: "Capstone Project – Voice Activated Bike Turn Signal:",
+      capstoneDescription:
+        "Developed a real-time voice-controlled bike signal system using Edge Impulse, TensorFlow, and 50,000+ audio samples from Google Speech Commands, achieving 95% voice recognition accuracy. Deployed the machine learning model to an Arduino Nano 33 BLE, leveraging I2C communication and C++ to trigger LED signals.",
     },
   ];
   return (
@@ -103,6 +106,10 @@ export const ExperienceSection = () => {
                       <span className="text-gray-500">{edu.period}</span>
                     </div>
                     <p className="text-gray-600">{edu.description}</p>
+                    <p className="text-gray-600 font-bold mt-3">
+                      {edu.capstoneTitle}
+                    </p>
+                    <p className="text-gray-600">{edu.capstoneDescription}</p>
                   </div>
                 </div>
               ))}
