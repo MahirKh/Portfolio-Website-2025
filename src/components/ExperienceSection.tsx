@@ -6,7 +6,7 @@ export const ExperienceSection = () => {
     {
       title: "Associate Software Engineer",
       company: "Sun Life Financial",
-      period: "2024 - Present",
+      period: "January 2024 - Present",
       description:
         "At Sun Life, I’ve contributed to enterprise-scale applications using React, Node.js, Docker, and PostgreSQL. Contributed to key initiatives like a vendor-agnostic authentication system projected to save over $2M and helped build a reusable chatbot widget deployed across multiple platforms. I also supported cross-team DevOps efforts and temporarily stepped into senior developer responsibilities",
     },
