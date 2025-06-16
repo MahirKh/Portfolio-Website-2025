@@ -75,7 +75,7 @@ export const NavBar = () => {
                 e.preventDefault();
                 scrollToSection(link.href);
               }}
-              className={`${
+              className={`px-3 py-1.5 rounded-md hover:bg-blue-100 ${
                 scrolled
                   ? "text-gray-700 hover:text-gray-900"
                   : "text-gray-600 hover:text-gray-800"
@@ -90,7 +90,7 @@ export const NavBar = () => {
               e.preventDefault();
               window.open("/MahirKhandaker_Resume_9.pdf", "_blank");
             }}
-            className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+            className="px-3 py-1.5 rounded-md text-blue-600 hover:text-blue-700 hover:bg-blue-100 font-medium transition-colors"
           >
             Resume
           </a>
@@ -115,7 +115,7 @@ export const NavBar = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-gray-700 hover:text-gray-900 py-2 transition-colors"
+                className="text-gray-700 hover:text-gray-900 hover:bg-blue-100 px-3 py-2 rounded-md transition-colors"
               >
                 {link.name}
               </a>
@@ -126,7 +126,7 @@ export const NavBar = () => {
                 e.preventDefault();
                 window.open("/MahirKhandaker_Resume_9.pdf", "_blank");
               }}
-              className="text-blue-600 hover:text-blue-700 font-medium py-2 transition-colors"
+              className="text-blue-600 hover:text-blue-700 hover:bg-blue-100 px-3 py-2 rounded-md font-medium transition-colors"
             >
               Resume
             </a>
