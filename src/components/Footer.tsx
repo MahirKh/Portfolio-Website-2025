@@ -22,7 +22,7 @@ export const Footer = () => {
             <div className="text-2xl font-bold text-white mb-2">
               Mahir Khandaker
             </div>
-            <p className="text-gray-400">Full Stack Developer</p>
+            <p className="text-gray-400 text-center">Full Stack Developer</p>
           </div>
           <div className="flex space-x-4">
             {socialLinks.map((link, index) => (
