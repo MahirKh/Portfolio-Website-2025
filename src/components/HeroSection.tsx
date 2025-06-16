@@ -25,9 +25,8 @@ export const HeroSection = () => {
               Full Stack Developer
             </p>
             <p className="text-lg text-gray-600 max-w-xl">
-              I build exceptional digital experiences that are fast, accessible,
-              visually appealing, and responsive. Let's work together to bring
-              your ideas to life.
+              I build fast, accessible, and responsive web experiences that look
+              great and work even better. Let’s bring your ideas to life.
             </p>
             <div className="flex flex-wrap gap-6 pt-4">
               <Button
