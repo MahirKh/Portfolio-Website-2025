@@ -124,7 +124,7 @@ export const NavBar = () => {
               href="#resume"
               onClick={(e) => {
                 e.preventDefault();
-                window.open("/resume.pdf", "_blank");
+                window.open("/MahirKhandaker_Resume_9.pdf", "_blank");
               }}
               className="text-blue-600 hover:text-blue-700 font-medium py-2 transition-colors"
             >
