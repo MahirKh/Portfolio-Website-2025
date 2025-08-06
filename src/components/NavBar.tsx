@@ -88,7 +88,7 @@ export const NavBar = () => {
             href="#resume"
             onClick={(e) => {
               e.preventDefault();
-              window.open("/MahirKhandaker_Resume_12.pdf", "_blank");
+              window.open("/MahirKhandaker_Resume.pdf", "_blank");
             }}
             className="px-3 py-1.5 rounded-md text-blue-600 hover:text-blue-700 hover:bg-blue-100 font-medium transition-colors"
           >
@@ -124,7 +124,7 @@ export const NavBar = () => {
               href="#resume"
               onClick={(e) => {
                 e.preventDefault();
-                window.open("/MahirKhandaker_Resume_12.pdf", "_blank");
+                window.open("/MahirKhandaker_Resume.pdf", "_blank");
               }}
               className="text-blue-600 hover:text-blue-700 hover:bg-blue-100 px-3 py-2 rounded-md font-medium transition-colors"
             >

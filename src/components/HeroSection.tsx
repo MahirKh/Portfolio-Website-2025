@@ -31,12 +31,12 @@ export const HeroSection = () => {
             <div className="flex flex-wrap gap-6 pt-4">
               <Button
                 size="lg"
-                onClick={() => window.open("/MahirKhandaker_Resume_12.pdf")}
+                onClick={() => window.open("/MahirKhandaker_Resume.pdf")}
               >
                 <DownloadIcon
                   size={20}
                   className="mr-2"
-                  onClick={() => window.open("/MahirKhandaker_Resume_12.pdf")}
+                  onClick={() => window.open("/MahirKhandaker_Resume.pdf")}
                 />
                 Download Resume
               </Button>
